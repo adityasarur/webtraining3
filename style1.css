@@ -1,0 +1,113 @@
+/* basic reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #111; }
+
+/* ---------- Header ---------- */
+.header {
+  width: 100%;
+  background: #d3d3d3;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img { height: 50px; padding-left: 12px; }
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  font-size: 13px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #0d0d0d;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.nav ul li a:hover { color: #00b894; }
+
+.btn {
+  display: inline-block;
+  background: darkcyan;
+  color: #000;
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  transition: background 0.22s ease, transform .12s;
+}
+
+.btn:hover { background: #00d68f; transform: translateY(-1px); }
+
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('hand-819279_1280.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  z-index: 1;
+}
+
+/* Text container */
+.banner-text {
+  position: relative;
+  z-index: 2;
+  color: rgba(0,0,0,0.5);
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  height: 80px; /* keep space stable */
+}
+
+/* Each line */
+.banner-text h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeSequence 9s infinite;
+}
+
+/* Different start delays for sequence */
+.banner-text h1:nth-child(1) { animation-delay: 0s; }
+.banner-text h1:nth-child(2) { animation-delay: 3s; }
+.banner-text h1:nth-child(3) { animation-delay: 6s; }
+
+/* Fade in -> stay -> fade out */
+@keyframes fadeSequence {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+
+}
